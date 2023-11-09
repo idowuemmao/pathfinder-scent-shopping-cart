@@ -1,0 +1,20 @@
+const IMAGE_PATH = "/assets/images";
+
+export const alexander = `${IMAGE_PATH}/alexander-tsang.jpg`;
+export const allison = `${IMAGE_PATH}/allison-pieterse.jpg`;
+export const charlesdeluvio = `${IMAGE_PATH}/charlesdeluvio.jpg`;
+export const dario = `${IMAGE_PATH}/dario-gomes.jpg`;
+export const fernando = `${IMAGE_PATH}/fernando-andrade.jpg`;
+export const heidi = `${IMAGE_PATH}/heidi-walley.jpg`;
+export const jeroen = `${IMAGE_PATH}/jeroen-den-otter.jpg`;
+export const karly = `${IMAGE_PATH}/karly-jones.jpg`;
+export const kelvin = `${IMAGE_PATH}/kelvin-lutan.jpg`;
+export const laura = `${IMAGE_PATH}/laura-chouette.jpg`;
+export const mae = `${IMAGE_PATH}/mae-mu.jpg`;
+export const nusiba = `${IMAGE_PATH}/nusiba-ahmed.jpg`;
+export const pesce = `${IMAGE_PATH}/pesce-huang.jpg`;
+export const rosy = `${IMAGE_PATH}/rosy-h-nguyen.jpg`;
+export const ruijia = `${IMAGE_PATH}/ruijia-wang.jpg`;
+export const won = `${IMAGE_PATH}/won-young-park.jpg`;
+export const yixian = `${IMAGE_PATH}/yixian-zhao.jpg`;
+export const laura2 = `${IMAGE_PATH}/laura-chouette2.jpg`;
