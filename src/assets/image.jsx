@@ -18,3 +18,4 @@ export const ruijia = `${IMAGE_PATH}/ruijia-wang.jpg`;
 export const won = `${IMAGE_PATH}/won-young-park.jpg`;
 export const yixian = `${IMAGE_PATH}/yixian-zhao.jpg`;
 export const laura2 = `${IMAGE_PATH}/laura-chouette2.jpg`;
+export const backg = `${IMAGE_PATH}/DISPLAYPIC.jpg`;

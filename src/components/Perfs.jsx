@@ -14,6 +14,7 @@ const Perfs = () => {
   }, []);
 
   const updateLocalStorage = (updateItems) => {
+    updateItems = updateItems.filter((item) => item.count !== 0);
     localStorage.setItem("items", JSON.stringify(updateItems));
   };
   const handleIncrement = (itemId) => {
@@ -41,7 +42,7 @@ const Perfs = () => {
     });
   };
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <div className="flex flex-wrap items-center justify-center gap-4">
       {items.map((item) => (
         <PerfCard
           key={item.id}
