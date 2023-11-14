@@ -4,10 +4,8 @@ import PerfCard from "./PerfCard";
 
 const Perfs = ({ setTotalCount }) => {
   const [items, setItems] = useState([]);
-
   useEffect(() => {
     const storedItems = JSON.parse(localStorage.getItem("items"));
-    // localStorage.clear();
     if (storedItems) {
       setItems(storedItems);
     } else {
@@ -15,39 +13,40 @@ const Perfs = ({ setTotalCount }) => {
     }
   }, []);
   const handleIncrement = (itemId) => {
-    setItems((prevItems) => {
-      const updateItems = prevItems.map((item) => {
-        if (item.id === itemId) {
-          return { ...item, count: item.count + 1 };
-        }
-        return item;
-      });
-      updateLocalStorage(updateItems);
-      calculation(updateItems);
-      return updateItems;
-    });
+    const search = items.findIndex((item) => item.id === itemId);
+    if (search !== -1) {
+      const updatedItems = [...items];
+      updatedItems[search] = {
+        ...items[search],
+        count: items[search].count + 1,
+      };
+      setItems(updatedItems);
+      updateLocalStorage(updatedItems);
+      calculation(updatedItems);
+    }
   };
   const handleDecrement = (itemId) => {
-    setItems((prevItems) => {
-      const updateItems = prevItems.map((item) => {
-        if (item.id === itemId) {
-          return { ...item, count: item.count - 1 };
-        }
-        return item;
-      });
-      updateLocalStorage(updateItems);
-      calculation(updateItems);
-      return updateItems;
-    });
+    const search = items.findIndex((item) => item.id === itemId);
+    if (search >= 0 && items[search].count > 0) {
+      const updatedItems = [...items];
+      updatedItems[search] = {
+        ...items[search],
+        count: items[search].count - 1,
+      };
+      setItems(updatedItems);
+      updateLocalStorage(updatedItems);
+      calculation(updatedItems);
+    }
   };
-  const updateLocalStorage = (updateItems) => {
-    updateItems = updateItems
-      ? updateItems.filter((item) => item.count !== 0)
-      : [];
-    localStorage.setItem("items", JSON.stringify(updateItems));
+  const updateLocalStorage = (updatedItems) => {
+    localStorage.setItem("items", JSON.stringify(updatedItems));
+
+    //   ? updateItems.filter((item) => item.count !== 0)
+    //   : [];
+    // localStorage.setItem("items", JSON.stringify(updateItems));
   };
-  const calculation = (updateItems) => {
-    const totalCount = updateItems.reduce(
+  const calculation = (updatedItems) => {
+    const totalCount = updatedItems.reduce(
       (total, item) => total + item.count,
       0
     );
