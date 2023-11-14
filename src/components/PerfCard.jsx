@@ -20,10 +20,10 @@ const PerfCard = ({
         <h2 className="text-sm capitalize font-bold">{name}</h2>
         <p className="text-[0.7rem]">{desc}</p>
         <div className="flex  items-center">
-          <h4 className="">${price}</h4>
+          <h4 className="text-xl">${price}</h4>
           <div className=" flex flex-col ml-auto">
-            <p className="text-[0.4rem]">Add to Cart</p>
-            <div className="flex gap-1 font-semibold items-center justify-center">
+            <p className="text-[0.6rem]">Add to Cart</p>
+            <div className="flex gap-1 text-lg font-semibold items-center justify-center">
               <button className="button" onClick={onDecrement}>
                 -
               </button>
