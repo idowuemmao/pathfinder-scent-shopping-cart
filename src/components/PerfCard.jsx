@@ -15,7 +15,7 @@ const PerfCard = ({
       key={id}
       className="w-48 min-h-full border-2 grid bg-slate-800 text-white"
     >
-      <img src={img} alt={name} className="w-full h-full object-cover" />
+      <img src={img} alt={name} className="w-full h-64 object-cover" />
       <div className="p-1 grid mt-1 gap-2">
         <h2 className="text-sm capitalize font-bold">{name}</h2>
         <p className="text-[0.7rem]">{desc}</p>

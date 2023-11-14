@@ -2,21 +2,18 @@ import React, { useEffect, useState } from "react";
 import ShopItemData from "./ShopItemDb";
 import PerfCard from "./PerfCard";
 
-const Perfs = () => {
-  const [items, setItems] = useState(ShopItemData);
-  const storedItems = JSON.parse(localStorage.getItem("items"));
+const Perfs = ({ setTotalCount }) => {
+  const [items, setItems] = useState([]);
+
   useEffect(() => {
+    const storedItems = JSON.parse(localStorage.getItem("items"));
+    // localStorage.clear();
     if (storedItems) {
       setItems(storedItems);
     } else {
       setItems(ShopItemData);
     }
   }, []);
-
-  const updateLocalStorage = (updateItems) => {
-    updateItems = updateItems.filter((item) => item.count !== 0);
-    localStorage.setItem("items", JSON.stringify(updateItems));
-  };
   const handleIncrement = (itemId) => {
     setItems((prevItems) => {
       const updateItems = prevItems.map((item) => {
@@ -26,6 +23,7 @@ const Perfs = () => {
         return item;
       });
       updateLocalStorage(updateItems);
+      calculation(updateItems);
       return updateItems;
     });
   };
@@ -38,8 +36,22 @@ const Perfs = () => {
         return item;
       });
       updateLocalStorage(updateItems);
+      calculation(updateItems);
       return updateItems;
     });
+  };
+  const updateLocalStorage = (updateItems) => {
+    updateItems = updateItems
+      ? updateItems.filter((item) => item.count !== 0)
+      : [];
+    localStorage.setItem("items", JSON.stringify(updateItems));
+  };
+  const calculation = (updateItems) => {
+    const totalCount = updateItems.reduce(
+      (total, item) => total + item.count,
+      0
+    );
+    setTotalCount(totalCount);
   };
   return (
     <div className="flex flex-wrap items-center justify-center gap-4">
