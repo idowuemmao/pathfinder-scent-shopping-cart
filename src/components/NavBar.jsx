@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { logo } from "../assets";
 import { HiMiniShoppingCart } from "react-icons/hi2";
 
-const NavBar = ({ totalCount }) => {
+const NavBar = ({ totalCount, setTotalCount }) => {
+  useEffect(() => {
+    const storedTotalCount = localStorage.getItem("totalCount");
+    if (storedTotalCount) {
+      setTotalCount(parseInt(storedTotalCount, 10));
+    }
+  }, [setTotalCount]);
   return (
     <header className="w-full border-primary bg-black border-b-[1px] sticky top-0 z-20 flex justify-between items-center p-4 pr-10">
       <img src={logo} alt="logo" className="w-24" />

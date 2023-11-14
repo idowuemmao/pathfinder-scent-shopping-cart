@@ -51,6 +51,7 @@ const Perfs = ({ setTotalCount }) => {
       0
     );
     setTotalCount(totalCount);
+    localStorage.setItem("totalCount", totalCount.toString());
   };
   return (
     <div className="flex flex-wrap items-center justify-center gap-4">
