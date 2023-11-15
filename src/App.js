@@ -1,6 +1,7 @@
 import { useState } from "react";
 import NavBar from "./components/NavBar";
 import Perfs from "./components/Perfs";
+import Footer from "./components/Footer";
 
 function App() {
   const [totalCount, setTotalCount] = useState(0);
@@ -10,6 +11,7 @@ function App() {
       <div className="w-11/12 grid place-items-center mx-auto mt-10">
         <Perfs setTotalCount={setTotalCount} />
       </div>
+      <Footer />
     </main>
   );
 }
