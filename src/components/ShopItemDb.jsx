@@ -4,7 +4,7 @@ const ShopItemData = [
   {
     id: "1",
     name: "alexander-tsang",
-    price: 45,
+    price: 145,
     count: 0,
     desc: "Lorem ipsum, dolor sit amet consectetur adipisicing.",
     img: PerfImg.alexander,
@@ -20,7 +20,7 @@ const ShopItemData = [
   {
     id: "3",
     name: "charles-deluvio",
-    price: 25,
+    price: 140,
     count: 0,
     desc: "Lorem ipsum, dolor sit amet consectetur adipisicing.",
     img: PerfImg.charlesdeluvio,
@@ -29,7 +29,7 @@ const ShopItemData = [
   {
     id: "4",
     name: "dario-gomes",
-    price: 300,
+    price: 280,
     count: 0,
     desc: "Lorem ipsum, dolor sit amet consectetur adipisicing.",
     img: PerfImg.dario,
@@ -47,7 +47,7 @@ const ShopItemData = [
   {
     id: "6",
     name: "heidi-walley",
-    price: 300,
+    price: 200,
     count: 0,
     desc: "Lorem ipsum, dolor sit amet consectetur adipisicing.",
     img: PerfImg.heidi,
@@ -55,7 +55,7 @@ const ShopItemData = [
   {
     id: "7",
     name: "jeroen-den-otter",
-    price: 300,
+    price: 150,
     count: 0,
     desc: "Lorem ipsum, dolor sit amet consectetur adipisicing.",
     img: PerfImg.jeroen,
@@ -63,7 +63,7 @@ const ShopItemData = [
   {
     id: "8",
     name: "karly-jones",
-    price: 300,
+    price: 220,
     count: 0,
     desc: "Lorem ipsum, dolor sit amet consectetur adipisicing.",
     img: PerfImg.karly,
@@ -71,7 +71,7 @@ const ShopItemData = [
   {
     id: "9",
     name: "kelvin-lutan",
-    price: 300,
+    price: 140,
     count: 0,
     desc: "Lorem ipsum, dolor sit amet consectetur adipisicing.",
     img: PerfImg.kelvin,
@@ -79,7 +79,7 @@ const ShopItemData = [
   {
     id: "10",
     name: "laura-chouette",
-    price: 300,
+    price: 155,
     count: 0,
     desc: "Lorem ipsum, dolor sit amet consectetur adipisicing.",
     img: PerfImg.laura,
@@ -87,7 +87,7 @@ const ShopItemData = [
   {
     id: "11",
     name: "mae-mu",
-    price: 300,
+    price: 250,
     count: 0,
     desc: "Lorem ipsum, dolor sit amet consectetur adipisicing.",
     img: PerfImg.mae,
@@ -95,7 +95,7 @@ const ShopItemData = [
   {
     id: "12",
     name: "nusiba-ahmed",
-    price: 300,
+    price: 280,
     count: 0,
     desc: "Lorem ipsum, dolor sit amet consectetur adipisicing.",
     img: PerfImg.nusiba,
@@ -103,7 +103,7 @@ const ShopItemData = [
   {
     id: "13",
     name: "pesce-huang",
-    price: 300,
+    price: 230,
     count: 0,
     desc: "Lorem ipsum, dolor sit amet consectetur adipisicing.",
     img: PerfImg.pesce,
@@ -111,7 +111,7 @@ const ShopItemData = [
   {
     id: "14",
     name: "rosy-h-nguyen",
-    price: 300,
+    price: 215,
     count: 0,
     desc: "Lorem ipsum, dolor sit amet consectetur adipisicing.",
     img: PerfImg.rosy,
@@ -119,7 +119,7 @@ const ShopItemData = [
   {
     id: "15",
     name: "ruijia-wang",
-    price: 300,
+    price: 204,
     count: 0,
     desc: "Lorem ipsum, dolor sit amet consectetur adipisicing.",
     img: PerfImg.ruijia,
@@ -127,7 +127,7 @@ const ShopItemData = [
   {
     id: "16",
     name: "won-young-park",
-    price: 300,
+    price: 195,
     count: 0,
     desc: "Lorem ipsum, dolor sit amet consectetur adipisicing.",
     img: PerfImg.won,
@@ -135,7 +135,7 @@ const ShopItemData = [
   {
     id: "17",
     name: "yixian-zhao",
-    price: 300,
+    price: 125,
     count: 0,
     desc: "Lorem ipsum, dolor sit amet consectetur adipisicing.",
     img: PerfImg.yixian,
