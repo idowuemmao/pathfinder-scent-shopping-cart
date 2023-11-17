@@ -11,7 +11,7 @@ function App() {
       <NavBar totalCount={totalCount} setTotalCount={setTotalCount} />
       <div className="w-11/12 grid place-items-center mx-auto mt-10">
         <Perfs setTotalCount={setTotalCount} />
-        <Clothes setTotalCount={setTotalCount} />
+        {/* <Clothes setTotalCount={setTotalCount} /> */}
       </div>
       <Footer />
     </main>

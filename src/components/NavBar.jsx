@@ -14,6 +14,12 @@ const NavBar = ({ totalCount, setTotalCount }) => {
       <a href="/">
         <img src={logo} alt="logo" className="w-24" />
       </a>
+      <button
+        className="text-white bg-red-400"
+        onClick={() => localStorage.clear()}
+      >
+        Clear
+      </button>
       <div className="relative">
         <HiMiniShoppingCart className="bg-gradient-to-r from-primary to-yellow-500 p-1 text-white text-3xl" />
         <h2 className="text-primary rounded-sm bg-red-700 absolute -top-2 -right-1 text-[0.65rem] font-semibold px-[2px] h-fit">
