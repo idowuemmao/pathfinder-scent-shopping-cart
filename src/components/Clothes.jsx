@@ -16,7 +16,7 @@ const Clothes = ({ setTotalCount }) => {
     };
     fetchData();
   }, []);
-  // console.log(data);
+  console.log(data);
   const handleIncrement = (itemId) => {
     const search = data.findIndex((item) => item.id === itemId);
     if (search !== -1) {

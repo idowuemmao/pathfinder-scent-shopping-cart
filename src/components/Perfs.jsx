@@ -6,7 +6,7 @@ const Perfs = ({ setTotalCount }) => {
   const [items, setItems] = useState([]);
   useEffect(() => {
     const storedItems = JSON.parse(localStorage.getItem("items"));
-    // localStorage.clear();
+    localStorage.clear();
     if (storedItems) {
       setItems(storedItems);
     } else {
