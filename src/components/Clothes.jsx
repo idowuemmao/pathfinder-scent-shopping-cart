@@ -1,44 +1,49 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import ClothCard from "./ClothCard";
+import React, { useEffect, useMemo, useState } from "react";
+import ShopItemData from "./ShopItemDb";
+import ItemCard from "./ItemCard";
 
 const Clothes = ({ setTotalCount }) => {
-  const [data, setData] = useState();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("https://fakestoreapi.com/products");
-        setData(response.data);
-      } catch (error) {
-        alert("Error Fetching data:", error);
-      }
-    };
-    fetchData();
+  const otherItemsDetails = useMemo(() => {
+    return ShopItemData.items.find((item) => item.type === "others");
   }, []);
-  console.log(data);
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    const storedItems = JSON.parse(localStorage.getItem("items"));
+
+    if (storedItems) {
+      setItems(storedItems);
+    } else {
+      setItems(otherItemsDetails.details);
+    }
+  }, []);
   const handleIncrement = (itemId) => {
-    const search = data.findIndex((item) => item.id === itemId);
+    const search = items.findIndex((item) => item.id === itemId);
     if (search !== -1) {
-      const updatedItems = [...data];
+      const updatedItems = [...items];
       updatedItems[search] = {
-        ...data[search],
-        count: data[search].count + 1,
+        ...items[search],
+        rating: {
+          ...items[search].rating,
+          count: (items[search].rating ? items[search].rating.count : 0) + 1,
+        },
       };
-      setData(updatedItems);
+      setItems(updatedItems);
       updateLocalStorage(updatedItems);
       calculation(updatedItems);
     }
   };
   const handleDecrement = (itemId) => {
-    const search = data.findIndex((item) => item.id === itemId);
-    if (search >= 0 && data[search].count > 0) {
-      const updatedItems = [...data];
+    const search = items.findIndex((item) => item.id === itemId);
+    if (search >= 0 && items[search].rating.count > 0) {
+      const updatedItems = [...items];
       updatedItems[search] = {
-        ...data[search],
-        count: data[search].count - 1,
+        ...items[search],
+        rating: {
+          ...items[search].rating,
+          count: items[search].rating.count - 1,
+        },
       };
-      setData(updatedItems);
+      setItems(updatedItems);
       updateLocalStorage(updatedItems);
       calculation(updatedItems);
     }
@@ -52,24 +57,25 @@ const Clothes = ({ setTotalCount }) => {
   };
   const calculation = (updatedItems) => {
     const totalCount = updatedItems.reduce(
-      (total, item) => total + item.count,
+      (total, item) => total + item.rating.count,
       0
     );
     setTotalCount(totalCount);
     localStorage.setItem("totalCount", totalCount.toString());
   };
+  console.log(items);
+
   return (
-    <div>
-      {data?.map((item) => (
-        <ClothCard
+    <div className="flex flex-wrap items-center justify-center gap-4">
+      {items?.map((item) => (
+        <ItemCard
           key={item.id}
           id={item.id}
           title={item.title}
           price={item.price}
           desc={item.description}
           category={item.category}
-          image={item.image}
-          rating={item.rating.rate}
+          img={item.img}
           count={item.rating.count}
           onIncrement={() => handleIncrement(item.id)}
           onDecrement={() => handleDecrement(item.id)}

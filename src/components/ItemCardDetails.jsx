@@ -1,7 +1,7 @@
 import { Dialog, Transition } from "@headlessui/react";
 import React, { Fragment } from "react";
 
-const ClothCardDetails = ({ isOpen, closeModal, name, img, price, desc }) => {
+const ItemCardDetails = ({ isOpen, closeModal, name, img, price, desc }) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -48,4 +48,4 @@ const ClothCardDetails = ({ isOpen, closeModal, name, img, price, desc }) => {
   );
 };
 
-export default ClothCardDetails;
+export default ItemCardDetails;

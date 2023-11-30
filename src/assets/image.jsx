@@ -1,5 +1,5 @@
 const IMAGE_PATH = "/assets/images";
-
+//Perfume images
 export const alexander = `${IMAGE_PATH}/alexander-tsang.jpg`;
 export const allison = `${IMAGE_PATH}/allison-pieterse.jpg`;
 export const charlesdeluvio = `${IMAGE_PATH}/charlesdeluvio.jpg`;
@@ -19,3 +19,24 @@ export const won = `${IMAGE_PATH}/won-young-park.jpg`;
 export const yixian = `${IMAGE_PATH}/yixian-zhao.jpg`;
 export const laura2 = `${IMAGE_PATH}/laura-chouette2.jpg`;
 export const backg = `${IMAGE_PATH}/DISPLAYPIC.jpg`;
+//Other items
+export const jacket = `${IMAGE_PATH}/Jacket.jpg`;
+export const micropave = `${IMAGE_PATH}/Micropave.jpg`;
+export const acer = `${IMAGE_PATH}/Acer.jpg`;
+export const backpack = `${IMAGE_PATH}/Backpack.jpg`;
+export const biyla = `${IMAGE_PATH}/BIYLACLESEN.jpg`;
+export const chainbracelet = `${IMAGE_PATH}/ChainBracelet.jpg`;
+export const danvouy = `${IMAGE_PATH}/DANVOUY.jpg`;
+export const gaming = `${IMAGE_PATH}/GamingDrive.jpg`;
+export const harddrive = `${IMAGE_PATH}/HardDrive.jpg`;
+export const sata = `${IMAGE_PATH}/SATA.jpg`;
+export const sandisk = `${IMAGE_PATH}/SanDisk.jpg`;
+export const tshirt = `${IMAGE_PATH}/T-Shirts.jpg`;
+export const slimfit = `${IMAGE_PATH}/SlimFit.jpg`;
+export const steeldouble = `${IMAGE_PATH}/SteelDouble.jpg`;
+export const poly = `${IMAGE_PATH}/POLYURETHANE.jpg`;
+export const princess = `${IMAGE_PATH}/Princess.jpg`;
+export const qled = `${IMAGE_PATH}/QLED.jpg`;
+export const rainjacket = `${IMAGE_PATH}/RainJacket.jpg`;
+export const opna = `${IMAGE_PATH}/Opna.jpg`;
+export const mbj = `${IMAGE_PATH}/MBJ.jpg`;

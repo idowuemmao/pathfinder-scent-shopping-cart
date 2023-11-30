@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { logo } from "../assets";
 import { HiMiniShoppingCart } from "react-icons/hi2";
+import CartSummary from "./CartSummary";
 
 const NavBar = ({ totalCount, setTotalCount }) => {
   useEffect(() => {
@@ -14,13 +15,13 @@ const NavBar = ({ totalCount, setTotalCount }) => {
       <a href="/">
         <img src={logo} alt="logo" className="w-24" />
       </a>
-      {/* <a
+      <a
         href="/"
-        className="text-white bg-red-400"
+        className="text-white bg-primary rounded-full p-1 shadow-lg"
         onClick={() => localStorage.clear()}
       >
         Clear Cart
-      </a> */}
+      </a>
       <div className="relative">
         <HiMiniShoppingCart className="bg-gradient-to-r from-primary to-yellow-500 p-1 text-white text-3xl" />
         <h2 className="text-primary rounded-sm bg-red-700 absolute -top-2 -right-1 text-[0.65rem] font-semibold px-[2px] h-fit">

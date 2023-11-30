@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import { MdRemoveRedEye } from "react-icons/md";
-import ClothCardDetails from "./ClothCardDetails";
+import ItemCardDetails from "./ItemCardDetails";
+import PropTypes from "prop-types";
 
-const ClothCard = ({
+const ItemCard = ({
   id,
-  title,
+  name,
   price,
-  desc,
-  category,
-  image,
-  rating,
   count,
+  desc,
+  img,
   onIncrement,
   onDecrement,
 }) => {
@@ -21,21 +20,30 @@ const ClothCard = ({
   const openModal = () => {
     setIsOpen(true);
   };
+
   return (
     <>
       <div
         key={id}
         className="w-48 min-h-full border-2 grid bg-slate-800 text-white"
       >
-        <img src={image} alt={title} className="w-full h-64 object-cover" />
+        <img src={img} alt={name} className="w-full h-64 object-cover" />
         <div className="p-1 grid mt-1 gap-2">
           <div className="flex justify-between items-center">
-            <h2 className="text-sm capitalize font-bold">{title}</h2>
-            <button type="button" onClick={openModal}>
+            <h2 className="text-sm capitalize font-bold">{name}</h2>
+            {/* <button type="button" onClick={openModal}>
               <MdRemoveRedEye />
-            </button>
+            </button> */}
           </div>
-          <p className="text-[0.7rem]">{desc}</p>
+          <p className="text-[0.7rem]">
+            {desc.substring(0, 40)}...{" "}
+            <button
+              onClick={openModal}
+              className="italic ml-2 underline text-[0.65rem]"
+            >
+              See more
+            </button>
+          </p>
           <div className="flex  items-center">
             <h4 className="text-xl">${price}</h4>
             <div className=" flex flex-col ml-auto">
@@ -53,11 +61,11 @@ const ClothCard = ({
           </div>
         </div>
       </div>
-      <ClothCardDetails
+      <ItemCardDetails
         isOpen={isOpen}
         closeModal={closeModal}
-        name={title}
-        img={image}
+        name={name}
+        img={img}
         price={price}
         desc={desc}
       />
@@ -65,4 +73,16 @@ const ClothCard = ({
   );
 };
 
-export default ClothCard;
+ItemCard.propTypes = {
+  id: PropTypes.number,
+  title: PropTypes.string,
+  price: PropTypes.number,
+  desc: PropTypes.string, // Make sure to include this line
+  category: PropTypes.string,
+  img: PropTypes.string,
+  count: PropTypes.number,
+  onIncrement: PropTypes.func,
+  onDecrement: PropTypes.func,
+};
+
+export default ItemCard;

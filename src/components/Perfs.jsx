@@ -1,11 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
 import ShopItemData from "./ShopItemDb";
-import PerfCard from "./PerfCard";
+import PerfCard from "./ItemCard";
 
 const Perfs = ({ setTotalCount }) => {
   const perfDetails = useMemo(() => {
     return ShopItemData.items.find((item) => item.type === "perfume");
   }, []);
+  // localStorage.clear();
   const [items, setItems] = useState([]);
   useEffect(() => {
     const storedItems = JSON.parse(localStorage.getItem("items"));
@@ -63,6 +64,8 @@ const Perfs = ({ setTotalCount }) => {
     setTotalCount(totalCount);
     localStorage.setItem("totalCount", totalCount.toString());
   };
+  console.log(items);
+
   return (
     <div className="flex flex-wrap items-center justify-center gap-4">
       {items.map((item) => (
