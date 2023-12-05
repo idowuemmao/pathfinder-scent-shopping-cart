@@ -61,7 +61,7 @@ const Others = ({ setTotalCount }) => {
       0
     );
     setTotalCount(totalCount);
-    localStorage.setItem("overallTotalCount", totalCount.toString());
+    localStorage.setItem("totalCountOthers", totalCount.toString());
   };
   // console.log(items);
 

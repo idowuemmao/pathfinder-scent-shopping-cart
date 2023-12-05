@@ -6,6 +6,7 @@ import Others from "./components/Others";
 
 function App() {
   const [totalCount, setTotalCount] = useState(0);
+  // console.log(totalCount);
   return (
     <main className="bg-home-bg bg-cover bg-no-repeat min-h-screen">
       <NavBar totalCount={totalCount} setTotalCount={setTotalCount} />

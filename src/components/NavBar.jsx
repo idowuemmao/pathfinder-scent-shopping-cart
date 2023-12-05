@@ -14,11 +14,10 @@ const NavBar = ({ totalCount, setTotalCount }) => {
     const totalCountPerfs = parseInt(storedTotalCountPerfs, 10);
 
     const overallTotalCount = totalCountOthers + totalCountPerfs;
-    const storedTotalCount = localStorage.setItem("overallTotalCount", "0");
 
-    setTotalCount(storedTotalCount);
-  }, []);
-  console.log(totalCount);
+    setTotalCount(overallTotalCount);
+  }, [setTotalCount, totalCount]);
+
   return (
     <header className="w-full border-primary bg-black border-b-[1px] sticky top-0 z-20 flex justify-between items-center p-4 pr-10">
       <a href="/">

@@ -63,9 +63,9 @@ const Perfs = ({ setTotalCount }) => {
       0
     );
     setTotalCount(totalCount);
-    localStorage.setItem("overallTotalCount", totalCount.toString());
+    localStorage.setItem("totalCountPerfs", totalCount.toString());
+    // console.log(totalCount);
   };
-  // console.log(perfItems);
 
   return (
     <div>
