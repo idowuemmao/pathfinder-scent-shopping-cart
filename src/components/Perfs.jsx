@@ -1,60 +1,61 @@
 import React, { useEffect, useMemo, useState } from "react";
 import ShopItemData from "./ShopItemDb";
 import PerfCard from "./ItemCard";
+import ItemCard from "./ItemCard";
 
 const Perfs = ({ setTotalCount }) => {
   const perfDetails = useMemo(() => {
     return ShopItemData.items.find((item) => item.type === "perfume");
   }, []);
   // localStorage.clear();
-  const [items, setItems] = useState([]);
+  const [perfItems, setPerfItems] = useState([]);
   useEffect(() => {
-    const storedItems = JSON.parse(localStorage.getItem("items"));
+    const storedItems = JSON.parse(localStorage.getItem("perfItems"));
 
     if (storedItems) {
-      setItems(storedItems);
+      setPerfItems(storedItems);
     } else {
-      setItems(perfDetails.details);
+      setPerfItems(perfDetails.details);
     }
   }, []);
   const handleIncrement = (itemId) => {
-    const search = items.findIndex((item) => item.id === itemId);
+    const search = perfItems.findIndex((item) => item.id === itemId);
     if (search !== -1) {
-      const updatedItems = [...items];
+      const updatedItems = [...perfItems];
       updatedItems[search] = {
-        ...items[search],
+        ...perfItems[search],
         rating: {
-          ...items[search].rating,
-          count: items[search].rating.count + 1,
+          ...perfItems[search].rating,
+          count: perfItems[search].rating.count + 1,
         },
       };
-      setItems(updatedItems);
+      setPerfItems(updatedItems);
       updateLocalStorage(updatedItems);
       calculation(updatedItems);
     }
   };
   const handleDecrement = (itemId) => {
-    const search = items.findIndex((item) => item.id === itemId);
-    if (search >= 0 && items[search].rating.count > 0) {
-      const updatedItems = [...items];
+    const search = perfItems.findIndex((item) => item.id === itemId);
+    if (search >= 0 && perfItems[search].rating.count > 0) {
+      const updatedItems = [...perfItems];
       updatedItems[search] = {
-        ...items[search],
+        ...perfItems[search],
         rating: {
-          ...items[search].rating,
-          count: items[search].rating.count - 1,
+          ...perfItems[search].rating,
+          count: perfItems[search].rating.count - 1,
         },
       };
-      setItems(updatedItems);
+      setPerfItems(updatedItems);
       updateLocalStorage(updatedItems);
       calculation(updatedItems);
     }
   };
   const updateLocalStorage = (updatedItems) => {
-    localStorage.setItem("items", JSON.stringify(updatedItems));
+    localStorage.setItem("perfItems", JSON.stringify(updatedItems));
 
     //   ? updateItems.filter((item) => item.count !== 0)
     //   : [];
-    // localStorage.setItem("items", JSON.stringify(updateItems));
+    // localStorage.setItem("perfItems", JSON.stringify(updateItems));
   };
   const calculation = (updatedItems) => {
     const totalCount = updatedItems.reduce(
@@ -62,24 +63,26 @@ const Perfs = ({ setTotalCount }) => {
       0
     );
     setTotalCount(totalCount);
-    localStorage.setItem("totalCount", totalCount.toString());
+    localStorage.setItem("overallTotalCount", totalCount.toString());
   };
-  console.log(items);
+  // console.log(perfItems);
 
   return (
-    <div className="flex flex-wrap items-center justify-center gap-4">
-      {items.map((item) => (
-        <PerfCard
-          key={item.id}
-          name={item.title}
-          count={item.rating.count}
-          price={item.price}
-          img={item.img}
-          desc={item.description}
-          onIncrement={() => handleIncrement(item.id)}
-          onDecrement={() => handleDecrement(item.id)}
-        />
-      ))}
+    <div>
+      <div className="flex flex-wrap items-center justify-center gap-4">
+        {perfItems.map((item) => (
+          <PerfCard
+            key={item.id}
+            name={item.title}
+            count={item.rating.count}
+            price={item.price}
+            img={item.img}
+            desc={item.description}
+            onIncrement={() => handleIncrement(item.id)}
+            onDecrement={() => handleDecrement(item.id)}
+          />
+        ))}
+      </div>
     </div>
   );
 };

@@ -5,11 +5,20 @@ import CartSummary from "./CartSummary";
 
 const NavBar = ({ totalCount, setTotalCount }) => {
   useEffect(() => {
-    const storedTotalCount = localStorage.getItem("totalCount");
-    if (storedTotalCount) {
-      setTotalCount(parseInt(storedTotalCount, 10));
-    }
-  }, [setTotalCount]);
+    const storedTotalCountOthers =
+      localStorage.getItem("totalCountOthers") || "0";
+    const storedTotalCountPerfs =
+      localStorage.getItem("totalCountPerfs") || "0";
+
+    const totalCountOthers = parseInt(storedTotalCountOthers, 10);
+    const totalCountPerfs = parseInt(storedTotalCountPerfs, 10);
+
+    const overallTotalCount = totalCountOthers + totalCountPerfs;
+    const storedTotalCount = localStorage.setItem("overallTotalCount", "0");
+
+    setTotalCount(storedTotalCount);
+  }, []);
+  console.log(totalCount);
   return (
     <header className="w-full border-primary bg-black border-b-[1px] sticky top-0 z-20 flex justify-between items-center p-4 pr-10">
       <a href="/">
@@ -17,7 +26,7 @@ const NavBar = ({ totalCount, setTotalCount }) => {
       </a>
       <a
         href="/"
-        className="text-white bg-primary rounded-full p-1 shadow-lg"
+        className="text-red-800 bg-primary rounded-full p-1 px-3 font-bold text-xs shadow-lg"
         onClick={() => localStorage.clear()}
       >
         Clear Cart

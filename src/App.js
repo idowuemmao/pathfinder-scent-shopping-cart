@@ -2,7 +2,7 @@ import { useState } from "react";
 import NavBar from "./components/NavBar";
 import Perfs from "./components/Perfs";
 import Footer from "./components/Footer";
-import Clothes from "./components/Clothes";
+import Others from "./components/Others";
 
 function App() {
   const [totalCount, setTotalCount] = useState(0);
@@ -14,7 +14,7 @@ function App() {
         <h2 className="mt-4 text-white text-lg uppercase font-bold">
           Other Items
         </h2>
-        <Clothes setTotalCount={setTotalCount} />
+        <Others setTotalCount={setTotalCount} />
       </div>
       <Footer />
     </main>

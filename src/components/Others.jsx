@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import ShopItemData from "./ShopItemDb";
 import ItemCard from "./ItemCard";
 
-const Clothes = ({ setTotalCount }) => {
+const Others = ({ setTotalCount }) => {
   const otherItemsDetails = useMemo(() => {
     return ShopItemData.items.find((item) => item.type === "others");
   }, []);
@@ -61,9 +61,9 @@ const Clothes = ({ setTotalCount }) => {
       0
     );
     setTotalCount(totalCount);
-    localStorage.setItem("totalCount", totalCount.toString());
+    localStorage.setItem("overallTotalCount", totalCount.toString());
   };
-  console.log(items);
+  // console.log(items);
 
   return (
     <div className="flex flex-wrap items-center justify-center gap-4">
@@ -71,7 +71,7 @@ const Clothes = ({ setTotalCount }) => {
         <ItemCard
           key={item.id}
           id={item.id}
-          title={item.title}
+          name={item.title}
           price={item.price}
           desc={item.description}
           category={item.category}
@@ -85,4 +85,4 @@ const Clothes = ({ setTotalCount }) => {
   );
 };
 
-export default Clothes;
+export default Others;
