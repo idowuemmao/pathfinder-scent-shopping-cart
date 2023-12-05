@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { logo } from "../assets";
 import { HiMiniShoppingCart } from "react-icons/hi2";
-import CartSummary from "./CartSummary";
 
 const NavBar = ({ totalCount, setTotalCount }) => {
   useEffect(() => {
@@ -19,7 +18,7 @@ const NavBar = ({ totalCount, setTotalCount }) => {
   }, [setTotalCount, totalCount]);
 
   return (
-    <header className="w-full border-primary bg-black border-b-[1px] sticky top-0 z-20 flex justify-between items-center p-4 pr-10">
+    <header className="w-full border-primary bg-black border-b-[1px] flex justify-between items-center p-4 pr-10">
       <a href="/">
         <img src={logo} alt="logo" className="w-24" />
       </a>

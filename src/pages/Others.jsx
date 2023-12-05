@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import ShopItemData from "./ShopItemDb";
 import ItemCard from "./ItemCard";
+import { HiArrowLeft } from "react-icons/hi2";
 
 const Others = ({ setTotalCount }) => {
   const otherItemsDetails = useMemo(() => {
@@ -50,10 +51,6 @@ const Others = ({ setTotalCount }) => {
   };
   const updateLocalStorage = (updatedItems) => {
     localStorage.setItem("items", JSON.stringify(updatedItems));
-
-    //   ? updateItems.filter((item) => item.count !== 0)
-    //   : [];
-    // localStorage.setItem("items", JSON.stringify(updateItems));
   };
   const calculation = (updatedItems) => {
     const totalCount = updatedItems.reduce(
@@ -63,24 +60,31 @@ const Others = ({ setTotalCount }) => {
     setTotalCount(totalCount);
     localStorage.setItem("totalCountOthers", totalCount.toString());
   };
-  // console.log(items);
-
   return (
-    <div className="flex flex-wrap items-center justify-center gap-4">
-      {items?.map((item) => (
-        <ItemCard
-          key={item.id}
-          id={item.id}
-          name={item.title}
-          price={item.price}
-          desc={item.description}
-          category={item.category}
-          img={item.img}
-          count={item.rating.count}
-          onIncrement={() => handleIncrement(item.id)}
-          onDecrement={() => handleDecrement(item.id)}
-        />
-      ))}
+    <div>
+      <a
+        href="/"
+        className="text-white p-5 text-sm  w-full flex items-center justify-center"
+      >
+        <HiArrowLeft />
+        Back to Home Page
+      </a>
+      <div className="flex flex-wrap items-center justify-center gap-4">
+        {items?.map((item) => (
+          <ItemCard
+            key={item.id}
+            id={item.id}
+            name={item.title}
+            price={item.price}
+            desc={item.description}
+            category={item.category}
+            img={item.img}
+            count={item.rating.count}
+            onIncrement={() => handleIncrement(item.id)}
+            onDecrement={() => handleDecrement(item.id)}
+          />
+        ))}
+      </div>
     </div>
   );
 };

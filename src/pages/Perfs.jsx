@@ -1,13 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
 import ShopItemData from "./ShopItemDb";
 import PerfCard from "./ItemCard";
-import ItemCard from "./ItemCard";
+import { HiArrowLeft } from "react-icons/hi2";
 
 const Perfs = ({ setTotalCount }) => {
   const perfDetails = useMemo(() => {
     return ShopItemData.items.find((item) => item.type === "perfume");
   }, []);
-  // localStorage.clear();
   const [perfItems, setPerfItems] = useState([]);
   useEffect(() => {
     const storedItems = JSON.parse(localStorage.getItem("perfItems"));
@@ -52,10 +51,6 @@ const Perfs = ({ setTotalCount }) => {
   };
   const updateLocalStorage = (updatedItems) => {
     localStorage.setItem("perfItems", JSON.stringify(updatedItems));
-
-    //   ? updateItems.filter((item) => item.count !== 0)
-    //   : [];
-    // localStorage.setItem("perfItems", JSON.stringify(updateItems));
   };
   const calculation = (updatedItems) => {
     const totalCount = updatedItems.reduce(
@@ -64,11 +59,17 @@ const Perfs = ({ setTotalCount }) => {
     );
     setTotalCount(totalCount);
     localStorage.setItem("totalCountPerfs", totalCount.toString());
-    // console.log(totalCount);
   };
 
   return (
-    <div>
+    <div className="w-full">
+      <a
+        href="/"
+        className="text-white p-5 text-sm  w-full flex items-center justify-center"
+      >
+        <HiArrowLeft />
+        Back to Home Page
+      </a>
       <div className="flex flex-wrap items-center justify-center gap-4">
         {perfItems.map((item) => (
           <PerfCard

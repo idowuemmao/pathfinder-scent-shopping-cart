@@ -18,11 +18,7 @@ export default function Footer() {
   };
   return (
     <footer>
-      <div
-        data-aos="flip-left"
-        data-aos-duration="1000"
-        className="bg-home-bg bg-cover border-t-[1px] border-primary text-white mt-24"
-      >
+      <div className="bg-home-bg bg-cover border-t-[1px] border-primary text-white">
         <div className=" px-8 md:px-16  pb-20 w-full">
           <h2 className="text-2xl md:text-4xl text-primary text-center pt-4 ">
             Contact Us

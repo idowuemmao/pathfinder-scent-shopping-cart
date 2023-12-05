@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { MdRemoveRedEye } from "react-icons/md";
 import ItemCardDetails from "./ItemCardDetails";
 import PropTypes from "prop-types";
 
@@ -33,9 +32,6 @@ const ItemCard = ({
             <h2 className="text-sm capitalize font-bold">
               {name.substring(0, 21)}...
             </h2>
-            {/* <button type="button" onClick={openModal}>
-              <MdRemoveRedEye />
-            </button> */}
           </div>
           <p className="text-[0.7rem]">
             {desc.substring(0, 40)}...{" "}
@@ -77,10 +73,10 @@ const ItemCard = ({
 
 ItemCard.propTypes = {
   id: PropTypes.number,
-  title: PropTypes.string,
+  name: PropTypes.string,
   price: PropTypes.number,
   desc: PropTypes.string, // Make sure to include this line
-  category: PropTypes.string,
+  // category: PropTypes.string,
   img: PropTypes.string,
   count: PropTypes.number,
   onIncrement: PropTypes.func,
